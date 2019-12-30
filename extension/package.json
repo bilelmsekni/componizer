@@ -1,0 +1,75 @@
+{
+	"name": "componizer",
+	"displayName": "Componizer",
+	"description": "Refactoring to components",
+	"version": "0.0.1",
+	"author": {
+		"name": "Bilel Msekni",
+		"email": "bilel@krafted.tech"
+	},
+	"publisher": "bilelmsekni",
+	"icon": "assets/componizer_icon.png",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/bilelmsekni/componizer.git"
+	},
+	"bugs": {
+		"url": "https://github.com/bilelmsekni/componizer/issues"
+	},
+	"homepage": "https://github.com/bilelmsekni/componizer/blob/master/extension/#readme",
+	"keywords": [
+		"angular",
+		"component",
+		"refactor"
+	],
+	"engines": {
+		"vscode": "^1.39.0"
+	},
+	"categories": [
+		"Other",
+		"Programming Languages"
+	],
+	"activationEvents": [
+		"workspaceContains:**/angular.json",
+		"onCommand:extension.componize"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "extension.componize",
+				"title": "Componize"
+			}
+		],
+		"menus": {
+			"editor/context": [
+				{
+					"when": "resourceLangId == html && editorHasSelection",
+					"command": "extension.componize",
+					"group": "1_modification"
+				}
+			]
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js",
+		"package": "vsce package"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.39.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"tslint": "^5.12.1",
+		"typescript": "^3.3.1",
+		"vsce": "^1.71.0",
+		"vscode-test": "^1.2.0"
+	},
+	"dependencies": {}
+}

@@ -1,0 +1,39 @@
+{
+  "name": "@componizer/schematics",
+  "version": "0.0.1",
+  "description": "Refactoring to components",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "build:watch": "tsc -p tsconfig.json --watch",
+    "test": "npm run build && jasmine ./**/*.spec.js",
+    "package": "npm run build && cpx ./**/{package.json,collection.json,schema.json,files/**} dist"
+  },
+  "keywords": [
+    "schematics",
+    "Angular",
+    "Schematics",
+    "Angular CLI"
+  ],
+  "author": {
+    "name": "Bilel Msekni",
+    "email": "bilel@krafted.tech"
+  },
+  "bugs": {
+    "url": "https://github.com/bilelmsekni/componizer/issues"
+  },
+  "homepage": "https://github.com/bilelmsekni/componizer/tree/master/schematics#readme",
+  "license": "MIT",
+  "schematics": "./collection.json",
+  "dependencies": {
+    "@angular-devkit/core": "^8.3.15",
+    "@angular-devkit/schematics": "^8.3.15",
+    "@schematics/angular": "^8.3.15"
+  },
+  "devDependencies": {
+    "cpx": "^1.5.0",
+    "@types/jasmine": "^3.3.9",
+    "@types/node": "^8.0.31",
+    "jasmine": "^3.3.1",
+    "typescript": "~3.5.3"
+  }
+}
