@@ -31,7 +31,10 @@
   ],
   "activationEvents": [
     "workspaceContains:**/angular.json",
+<<<<<<< HEAD
     "workspaceContains:node_modules/@angular/cli/bin/ng",
+=======
+>>>>>>> enhanced tests
     "onCommand:extension.componize"
   ],
   "main": "./out/extension.js",

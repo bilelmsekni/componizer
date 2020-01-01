@@ -24,14 +24,21 @@
 			"request": "launch",
 			"runtimeExecutable": "${execPath}",
 			"args": [
+<<<<<<< HEAD
 				"--disable-extensions",
+=======
+>>>>>>> enhanced tests
 				"--extensionDevelopmentPath=${workspaceFolder}/extension",
 				"--extensionTestsPath=${workspaceFolder}/extension/out/test/suite/index",
 			],
 			"outFiles": [
 				"${workspaceFolder}/extension/out/test/**/*.js"
 			],
+<<<<<<< HEAD
 			"preLaunchTask": "npm: ext:compile"
+=======
+			"preLaunchTask": "npm: ext:watch"
+>>>>>>> enhanced tests
 		}
 	]
 }

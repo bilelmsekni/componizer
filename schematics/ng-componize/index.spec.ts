@@ -1,7 +1,11 @@
 import { SchematicTestRunner, UnitTestTree } from '@angular-devkit/schematics/testing';
 import * as path from 'path';
 import { expect } from 'chai';
+<<<<<<< HEAD
 import { Style, ChangeDetection } from '@schematics/angular/component/schema';
+=======
+
+>>>>>>> enhanced tests
 
 const collectionPath = path.join(__dirname, '../collection.json');
 
@@ -50,9 +54,13 @@ describe('ng-componize', () => {
       export: false,
     }, appTree).toPromise();
 
+<<<<<<< HEAD
     expect(tree.files).to.contain('/projects/bar/src/app/toto/toto.component.ts');
     expect(tree.files).to.contain('/projects/bar/src/app/toto/toto.component.html');
     expect(tree.files).to.contain('/projects/bar/src/app/toto/toto.component.css');
     expect(tree.files).to.contain('/projects/bar/src/app/toto/toto.component.spec.ts');
+=======
+    expect(tree.files).to.equal([]);
+>>>>>>> enhanced tests
   });
 });
