@@ -11,12 +11,12 @@
 			"request": "launch",
 			"runtimeExecutable": "${execPath}",
 			"args": [
-				"--extensionDevelopmentPath=${workspaceFolder}"
+				"--extensionDevelopmentPath=${workspaceFolder}/extension"
 			],
 			"outFiles": [
-				"${workspaceFolder}/out/**/*.js"
+				"${workspaceFolder}/extension/out/**/*.js"
 			],
-			"preLaunchTask": "npm: watch"
+			"preLaunchTask": "npm: ext:watch"
 		},
 		{
 			"name": "Extension Tests",
@@ -24,13 +24,13 @@
 			"request": "launch",
 			"runtimeExecutable": "${execPath}",
 			"args": [
-				"--extensionDevelopmentPath=${workspaceFolder}",
-				"--extensionTestsPath=${workspaceFolder}/out/test/suite/index"
+				"--extensionDevelopmentPath=${workspaceFolder}/extension",
+				"--extensionTestsPath=${workspaceFolder}/extension/out/test/suite/index",
 			],
 			"outFiles": [
-				"${workspaceFolder}/out/test/**/*.js"
+				"${workspaceFolder}/extension/out/test/**/*.js"
 			],
-			"preLaunchTask": "npm: watch"
+			"preLaunchTask": "npm: ext:watch"
 		}
 	]
 }

@@ -1,0 +1,41 @@
+{
+  "name": "platform",
+  "version": "0.0.1",
+  "scripts": {
+    "ext:vscode:prepublish": "npm run ext:compile",
+    "ext:compile": "tsc -p ./extension",
+    "ext:watch": "tsc -watch -p ./extension",
+    "ext:test": "npm run ext:compile && node ./extension/out/test/runTest.js",
+    "ext:package": "cd extension && vsce package -o ../dist/",
+    "ext:lint": "tslint --project extension/tsconfig.json",
+    "sch:build": "tsc -p ./schematics/tsconfig.json",
+    "sch:build:static": "cpx ./schematics/**/{package.json,collection.json,schema.json,files/**} dist/sch",
+    "sch:build:watch": "tsc -p ./schematics/tsconfig.json --watch",
+    "sch:test": "mocha -r ts-node/register ./schematics/**/*.spec.ts",
+    "sch:package": "npm run sch:build && npm run sch:build:static",
+    "sch:lint": "tslint --project schematics/tsconfig.json",
+    "lint": "npm run ext:lint && npm run sch:lint"
+  },
+  "dependencies": {
+    "@angular-devkit/core": "^8.3.15",
+    "@angular-devkit/schematics": "^8.3.15",
+    "@schematics/angular": "^8.3.15"
+  },
+  "devDependencies": {
+    "@types/chai": "^4.2.7",
+    "@types/glob": "^7.1.1",
+    "@types/jasmine": "^3.3.9",
+    "@types/mocha": "^5.2.6",
+    "@types/node": "^10.12.21",
+    "@types/vscode": "^1.39.0",
+    "chai": "^4.2.0",
+    "cpx": "^1.5.0",
+    "glob": "^7.1.4",
+    "mocha": "^6.1.4",
+    "ts-node": "^8.5.4",
+    "tslint": "^5.12.1",
+    "typescript": "~3.5.3",
+    "vsce": "^1.71.0",
+    "vscode-test": "^1.2.0"
+  }
+}

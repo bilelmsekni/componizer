@@ -8,27 +8,7 @@ on:
       - master
 
 jobs:
-  build_extension:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1      
-      - name: Setup Node ${{ env.NODE_VERSION }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ env.NODE_VERSION }}
-      - name: Install and Test
-        working-directory: ./extension
-        run: npm install
-      - name: Package artifact
-        working-directory: ./extension
-        run: npm run package
-      - name: Upload artifact
-        uses: actions/upload-artifact@v1.0.0
-        with:
-          name: componizer.vsix
-          path: ./extension/componizer-0.0.1.vsix
-
-  build_schematics:
+  build_platform:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -36,23 +16,26 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ env.NODE_VERSION }}
-      - name: Install and Test
-        working-directory: ./schematics
-        run: npm install && npm test
-
-      - name: Package artifacts
-        working-directory: ./schematics
-        run: npm run package
-
+      - name: Install
+        run: npm install
+      - name: Package schematics
+        run: npm run sch:package
+      - name: Package extension
+        run: npm run ext:package
       - name: Upload artifact
         uses: actions/upload-artifact@v1.0.0
         with:
           name: componizer-schematics
-          path: ./schematics/dist
+          path: ./dist/sch
+      - name: Upload extension
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: componizer.vsix
+          path: ./dist/componizer-0.0.1.vsix
 
   publish_artifacts:
     runs-on: ubuntu-latest
-    needs: [build_extension, build_schematics]
+    needs: [build_platform]
     steps:
       - name: Download schematics artifact
         uses: actions/download-artifact@v1.0.0
@@ -69,4 +52,4 @@ jobs:
       - name: Publish schematics
         run: |
           npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}
-          npm publish componizer-schematics     
+          npm publish componizer-schematics

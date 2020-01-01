@@ -25,11 +25,10 @@ function componize(options: Schema): (tree: Tree, _context: SchematicContext) =>
 
       tree.getDir(newComponentDir)
         .visit(filePath => {
-          tryUpdateTemplate(filePath, () => tree.overwrite(filePath, newTemplate))
+          tryUpdateTemplate(filePath, () => tree.overwrite(filePath, newTemplate));
         });
     }
 
     return tree;
-  }
-};
-
+  };
+}

@@ -23,8 +23,8 @@ export function getNewComponentDetails(projectPath: string, componentName: strin
     return {
         selector: `${prefix}-${selector}`,
         directory: join(path, name)
-    }
-};
+    };
+}
 
 export function createTemplates(file: FileEntry, selector: string, start: number, end: number): { newTemplate: string, updatedTemplate: string } {
     const lines = file.content.toString().split('\n');
@@ -35,7 +35,7 @@ export function createTemplates(file: FileEntry, selector: string, start: number
     return {
         newTemplate: selection.join('\n'),
         updatedTemplate: [...begin, `<${selector}><${selector}/>`, ...finish].join('\n')
-    }
+    };
 
 }
 
