@@ -1,0 +1,55 @@
+{
+  "name": "componizer",
+  "displayName": "Componizer",
+  "description": "Refactoring to components",
+  "version": "0.0.1",
+  "author": {
+    "name": "Bilel Msekni",
+    "email": "bilel@krafted.tech"
+  },
+  "publisher": "bilelmsekni",
+  "icon": "assets/componizer_icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bilelmsekni/componizer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bilelmsekni/componizer/issues"
+  },
+  "homepage": "https://github.com/bilelmsekni/componizer/blob/master/extension/#readme",
+  "keywords": [
+    "angular",
+    "component",
+    "refactor"
+  ],
+  "engines": {
+    "vscode": "^1.39.0"
+  },
+  "categories": [
+    "Other",
+    "Programming Languages"
+  ],
+  "activationEvents": [
+    "workspaceContains:**/angular.json",
+    "workspaceContains:node_modules/@angular/cli/bin/ng",
+    "onCommand:extension.componize"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "extension.componize",
+        "title": "Componize"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "when": "resourceLangId == html && editorHasSelection",
+          "command": "extension.componize",
+          "group": "1_modification"
+        }
+      ]
+    }
+  }
+}

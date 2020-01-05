@@ -1,0 +1,19 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "tsconfig",
+    "outDir": "../dist/sch",
+    "rootDir": ".",
+    "declaration": true,
+    "moduleResolution": "node",
+    "skipDefaultLibCheck": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "ng-componize/**/*"
+  ],
+  "exclude": [
+    "./**/*.spec.ts",
+    "./*/files/**/*"
+  ]
+}

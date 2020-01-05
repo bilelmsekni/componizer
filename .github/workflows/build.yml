@@ -1,0 +1,55 @@
+name: Componizer CI
+env:
+  NODE_VERSION: "12.x"
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build_platform:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Setup Node ${{ env.NODE_VERSION }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+      - name: Install
+        run: npm install
+      - name: Package schematics
+        run: npm run sch:package
+      - name: Package extension
+        run: npm run ext:package
+      - name: Upload artifact
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: componizer-schematics
+          path: ./dist/sch
+      - name: Upload extension
+        uses: actions/upload-artifact@v1.0.0
+        with:
+          name: componizer.vsix
+          path: ./dist/componizer-0.0.1.vsix
+
+  publish_artifacts:
+    runs-on: ubuntu-latest
+    needs: [build_platform]
+    steps:
+      - name: Download schematics artifact
+        uses: actions/download-artifact@v1.0.0
+        with:
+          name: componizer-schematics
+      - name: Download extension artifact
+        uses: actions/download-artifact@v1.0.0
+        with:
+          name: componizer.vsix
+      - name: Publish extension
+        uses: JCofman/vscodeaction@master
+        with:
+          args: publish --packagePath componizer.vsix -p ${{ secrets.VSCE_PUB_TOKEN }}
+      - name: Publish schematics
+        run: |
+          npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}
+          npm publish componizer-schematics

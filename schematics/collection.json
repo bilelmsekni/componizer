@@ -1,0 +1,13 @@
+{
+  "$schema": "../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "extends": [
+    "@schematics/angular"
+  ],
+  "schematics": {
+    "ng-componize": {
+      "description": "Refactoring to Angular components",
+      "factory": "./ng-componize/index#ngComponize",
+      "schema": "./ng-componize/schema.json"
+    }
+  }
+}

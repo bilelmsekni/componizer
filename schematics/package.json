@@ -1,0 +1,26 @@
+{
+  "name": "@componizer/schematics",
+  "version": "0.0.1",
+  "description": "Refactoring to components",
+  "keywords": [
+    "schematics",
+    "Angular",
+    "Schematics",
+    "Angular CLI"
+  ],
+  "author": {
+    "name": "Bilel Msekni",
+    "email": "bilel@krafted.tech"
+  },
+  "bugs": {
+    "url": "https://github.com/bilelmsekni/componizer/issues"
+  },
+  "homepage": "https://github.com/bilelmsekni/componizer/tree/master/schematics#readme",
+  "license": "MIT",
+  "schematics": "./collection.json",
+  "peerDependencies": {
+    "@angular-devkit/core": "^8.3.15",
+    "@angular-devkit/schematics": "^8.3.15",
+    "@schematics/angular": "^8.3.15"
+  }
+}
