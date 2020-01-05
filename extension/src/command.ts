@@ -4,7 +4,6 @@ import { exec } from 'child_process';
 
 export const componizerCommand = async () => {
     // The code you place here will be executed every time your command is executed
-
     let editor = window.activeTextEditor;
     if (!!editor) {
         const workspacePath = workspace && workspace.workspaceFolders ? workspace.workspaceFolders[0].uri.fsPath : '';

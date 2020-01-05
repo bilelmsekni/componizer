@@ -24,13 +24,14 @@
 			"request": "launch",
 			"runtimeExecutable": "${execPath}",
 			"args": [
+				"--disable-extensions",
 				"--extensionDevelopmentPath=${workspaceFolder}/extension",
 				"--extensionTestsPath=${workspaceFolder}/extension/out/test/suite/index",
 			],
 			"outFiles": [
 				"${workspaceFolder}/extension/out/test/**/*.js"
 			],
-			"preLaunchTask": "npm: ext:watch"
+			"preLaunchTask": "npm: ext:compile"
 		}
 	]
 }
