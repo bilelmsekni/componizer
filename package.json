@@ -14,7 +14,8 @@
     "sch:test": "mocha -r ts-node/register ./schematics/**/*.spec.ts",
     "sch:package": "npm run sch:build && npm run sch:build:static",
     "sch:lint": "tslint --project schematics/tsconfig.json",
-    "lint": "npm run ext:lint && npm run sch:lint"
+    "lint": "npm run ext:lint && npm run sch:lint",
+    "test": "npm run ext:test && npm run sch:test"
   },
   "dependencies": {
     "@angular-devkit/core": "^8.3.15",

@@ -18,6 +18,8 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
       - name: Install
         run: npm install
+      - name: Lint
+        run: npm run lint
       - name: Package schematics
         run: npm run sch:package
       - name: Package extension
