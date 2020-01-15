@@ -26,10 +26,13 @@ npm install -g @angular/cli
 ## Roadmap
 
 * Avoid having to install ng-componize as a dev dependency in projects
+* Avoid having to install Angular CLI globally
 * Use Angular template syntax to refactor the component's TS accordingly
-* Refactoring styles (SCSS, CSS, ...)
+* Refactor component styles (SCSS, ...)
 * Create schematics for React
 * Create schematics for VueJs
 * Create schematics for Svelte ?
 
-**Enjoy!**
+## Contributors
+
+* Karim Mikhail
