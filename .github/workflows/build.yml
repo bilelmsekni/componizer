@@ -48,10 +48,10 @@ jobs:
         with:
           name: componizer.vsix
           path: /home/runner/work/componizer/
-      # - name: Publish extension
-      #   uses: JCofman/vscodeaction@master
-      #   with:
-      #     args: publish componizer.vsix -p ${{ secrets.VSCE_PUB_TOKEN }}
+      - name: Publish extension
+        uses: JCofman/vscodeaction@master
+        with:
+          args: publish componizer.vsix -p ${{ secrets.VSCE_PUB_TOKEN }}
       - name: Publish schematics
         run: |
           npm config set //registry.npmjs.org/:_authToken=${{ secrets.NPM_AUTH_TOKEN }}
