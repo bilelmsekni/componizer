@@ -1,4 +1,4 @@
-# Componizer README
+# Componizer
 
 Componizer is a tool to help you refactor your Angular components. Just select your html and choose Componize from the right click menu (aka Context menu) to see some magic.
 See the [CHANGELOG](https://github.com/bilelmsekni/componizer/blob/master/CHANGELOG.md) for the latest changes
