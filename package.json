@@ -1,12 +1,12 @@
 {
   "name": "platform",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
-    "ext:vscode:prepublish": "npm run ext:compile",
-    "ext:compile": "tsc -p ./extension",
+    "ext:vscode:prepublish": "npm run ext:build",
+    "ext:build": "tsc -p ./extension",
     "ext:watch": "tsc -watch -p ./extension",
-    "ext:test": "npm run ext:compile && node ./extension/out/test/runTest.js",
-    "ext:package": "cd extension && vsce package -o ../dist/",
+    "ext:test": "npm run ext:build && node ./extension/out/test/runTest.js",
+    "ext:package": "npm run ext:build && cd extension && vsce package -o ../dist/",
     "ext:lint": "tslint --project extension/tsconfig.json",
     "sch:build": "tsc -p ./schematics/tsconfig.json",
     "sch:build:static": "cpx ./schematics/**/{package.json,collection.json,schema.json,files/**} dist/sch",
