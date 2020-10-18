@@ -2,7 +2,7 @@
   "name": "componizer",
   "displayName": "Componizer",
   "description": "Refactoring to components",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": {
     "name": "Bilel Msekni",
     "email": "bilel@krafted.tech"
