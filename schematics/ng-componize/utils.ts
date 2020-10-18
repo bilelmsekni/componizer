@@ -34,7 +34,7 @@ export function createTemplates(file: FileEntry, selector: string, start: number
 
     return {
         newTemplate: selection.join('\n'),
-        updatedTemplate: [...begin, `<${selector}><${selector}/>`, ...finish].join('\n')
+        updatedTemplate: [...begin, `<${selector}></${selector}>`, ...finish].join('\n')
     };
 
 }
