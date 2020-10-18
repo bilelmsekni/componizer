@@ -20,3 +20,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [0.0.2]
 
 - [Fix] Extension packaging error
+
+## [0.0.3]
+
+- [Fix] Fixed wrong [slash after extraction](https://github.com/bilelmsekni/componizer/issues/5). Thanks to [Maykon Oliveira](https://github.com/maykon-oliveira)
