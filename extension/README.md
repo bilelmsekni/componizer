@@ -23,16 +23,11 @@ npm install -g @angular/cli
 
 -----------------------------------------------------------------------------------------------------------
 
-## Roadmap
+## [Do you want to contribute](https://github.com/bilelmsekni/componizer/blob/master/.github/CONTRIBUTING.md) ?
+-----------------------------------------------------------------------------------------------------------
 
-* Avoid having to install ng-componize as a dev dependency in projects
-* Avoid having to install Angular CLI globally
-* Use Angular template syntax to refactor the component's TS accordingly
-* Refactor component styles (SCSS, ...)
-* Create schematics for React
-* Create schematics for VueJs
-* Create schematics for Svelte ?
 
 ## Contributors
 
 * Karim Mikhail
+* [Maykon Oliveira](https://github.com/maykon-oliveira)
