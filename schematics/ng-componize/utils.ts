@@ -12,7 +12,7 @@ import {
 } from '@schematics/angular/utility/workspace-models';
 import * as fs from 'fs';
 import * as Parser from './HtmlParser';
-import { extractParameterName } from './HtmlParser';
+import { extractParameterName } from './htmlParser';
 
 export function getProjectDetails(
   workSpace: WorkspaceSchema,

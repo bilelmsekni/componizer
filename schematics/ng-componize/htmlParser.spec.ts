@@ -4,7 +4,7 @@ import {
   extractParameterName,
   launchParsing,
   parserFunctionsConfigurations,
-} from './HtmlParser';
+} from './htmlParser';
 
 describe('htmlParser', () => {
   it('launchParsing can find AngularDireciveLookup binding', () => {
