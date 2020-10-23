@@ -1,47 +1,65 @@
 {
-    "$schema": "http://json-schema.org/schema",
-    "id": "NgComponizeComponent",
-    "title": "Angular Componize Options Schema",
-    "type": "object",
-    "description": "Componize a new generic component definition in the given or default project.",
-    "properties": {
-        "name": {
-            "type": "string",
-            "description": "The name of the component.",
-            "$default": {
-                "$source": "argv",
-                "index": 0
-            }
-        },
-        "activeFile": {
-            "type": "string",
-            "description": "Current file name",
-            "$default": {
-                "$source": "argv",
-                "index": 1
-            }
-        },
-        "start": {
-            "type": "number",
-            "description": "Start line number of current selection",
-            "$default": {
-                "$source": "argv",
-                "index": 2
-            }
-        },
-        "end": {
-            "type": "number",
-            "description": "End line number of current selection",
-            "$default": {
-                "$source": "argv",
-                "index": 3
-            }
-        }
+  "$schema": "http://json-schema.org/schema",
+  "id": "NgComponizeComponent",
+  "title": "Angular Componize Options Schema",
+  "type": "object",
+  "description": "Componize a new generic component definition in the given or default project.",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "The name of the component.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      }
     },
-    "required": [
-        "name",
-        "activeFile",
-        "start",
-        "end"
-    ]
+    "activeFile": {
+      "type": "string",
+      "description": "Current file name",
+      "$default": {
+        "$source": "argv",
+        "index": 1
+      }
+    },
+    "start": {
+      "type": "number",
+      "description": "Start line number of current selection",
+      "$default": {
+        "$source": "argv",
+        "index": 2
+      }
+    },
+    "end": {
+      "type": "number",
+      "description": "End line number of current selection",
+      "$default": {
+        "$source": "argv",
+        "index": 3
+      }
+    },
+    "customSkipImport": {
+      "type": "string",
+      "description": "When true, does not import this component into the owning NgModule.",
+      "$default": {
+        "$source": "argv",
+        "index": 4
+      }
+    },
+    "debugMode": {
+      "type": "string",
+      "description": "When true, log file created.",
+      "$default": {
+        "$source": "argv",
+        "index": 5
+      }
+    }
+  },
+  "required": [
+    "name",
+    "activeFile",
+    "start",
+    "end",
+    "customSkipImport",
+    "debugMode"
+  ]
 }

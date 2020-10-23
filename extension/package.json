@@ -2,7 +2,7 @@
   "name": "componizer",
   "displayName": "Componizer",
   "description": "Refactoring to components",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "author": {
     "name": "Bilel Msekni",
     "email": "bilel@krafted.tech"
@@ -34,6 +34,12 @@
     "workspaceContains:node_modules/@angular/cli/bin/ng",
     "onCommand:extension.componize"
   ],
+  "dependencies": {
+    "@angular-devkit/core": "^8.3.15",
+    "@angular-devkit/schematics": "^8.3.15",
+    "@schematics/angular": "^8.3.15",
+    "ts-morph": "^8.1.1"
+  },
   "main": "./out/extension.js",
   "contributes": {
     "commands": [

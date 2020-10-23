@@ -24,3 +24,11 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [0.0.3]
 
 - [Fix] Fixed wrong [slash after extraction](https://github.com/bilelmsekni/componizer/issues/5). Thanks to [Maykon Oliveira](https://github.com/maykon-oliveira)
+
+## [0.0.4]
+
+- [enhancement] add skipImport question
+- [enhancement] add hidden debugMode
+- [enhancement] handle 3 types of bindings : attribute binding, two-way bindings, angular directive. new dependency : ts-morph  to manipulate new component typescript
+- [enhancement] update mochajs and add watch task
+- [enhancement] local install extension task

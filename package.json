@@ -1,17 +1,19 @@
 {
   "name": "platform",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "scripts": {
     "ext:vscode:prepublish": "npm run ext:build",
     "ext:build": "tsc -p ./extension",
     "ext:watch": "tsc -watch -p ./extension",
     "ext:test": "npm run ext:build && node ./extension/out/test/runTest.js",
     "ext:package": "npm run ext:build && cd extension && vsce package -o ../dist/",
+    "ext:install": "npm run ext:package && cd dist && code --install-extension componizer-0.0.4.vsix",
     "ext:lint": "tslint --project extension/tsconfig.json",
     "sch:build": "tsc -p ./schematics/tsconfig.json",
     "sch:build:static": "cpx ./schematics/**/{package.json,collection.json,schema.json,files/**} dist/sch",
     "sch:build:watch": "tsc -p ./schematics/tsconfig.json --watch",
     "sch:test": "mocha -r ts-node/register ./schematics/**/*.spec.ts",
+    "sch:test:watch": "mocha -r ts-node/register ./schematics/**/*.spec.ts -w --watch-files ./schematics/**/*.spec.ts",
     "sch:package": "npm run sch:build && npm run sch:build:static",
     "sch:lint": "tslint --project schematics/tsconfig.json",
     "lint": "npm run ext:lint && npm run sch:lint",
@@ -20,7 +22,8 @@
   "dependencies": {
     "@angular-devkit/core": "^8.3.15",
     "@angular-devkit/schematics": "^8.3.15",
-    "@schematics/angular": "^8.3.15"
+    "@schematics/angular": "^8.3.15",
+    "ts-morph": "^8.1.1"
   },
   "devDependencies": {
     "@types/chai": "^4.2.7",
@@ -33,7 +36,7 @@
     "chai": "^4.2.0",
     "cpx": "^1.5.0",
     "glob": "^7.1.4",
-    "mocha": "^6.1.4",
+    "mocha": "^8.2.0",
     "sinon": "^8.0.2",
     "ts-node": "^8.5.4",
     "tslint": "^5.12.1",
