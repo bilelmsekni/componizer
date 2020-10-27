@@ -11,8 +11,11 @@ import {
   WorkspaceSchema,
 } from '@schematics/angular/utility/workspace-models';
 import * as fs from 'fs';
-import * as Parser from './HtmlParser';
-import { extractParameterName } from './htmlParser';
+import {
+  extractParameterName,
+  FoundItem,
+  launchParsing,
+} from './htmlParser';
 
 export function getProjectDetails(
   workSpace: WorkspaceSchema,
@@ -22,7 +25,7 @@ export function getProjectDetails(
   const project = getProject(workSpace, projectName!);
   const path = buildDefaultPath(project);
   let prefix = findNewComponentPrefix(project);
-  return { path, prefix: prefix };
+  return { path, prefix };
 }
 
 export function getActiveFilePath(
@@ -60,7 +63,7 @@ export function createTemplates(
 ): {
   newComponentTemplate: string;
   updatedComponentTemplate: string;
-  foundItem: Parser.FoundItem[];
+  foundItem: FoundItem[];
 } {
   const lines = fileContent.split('\n');
   const begin = lines.slice(0, start);
@@ -73,7 +76,7 @@ export function createTemplates(
 
   let parametersStringPart = '';
 
-  const result = Parser.launchParsing(text);
+  const result = launchParsing(text);
 
   result.forEach((r) => (parametersStringPart += ` ${r.writeHtmlContent()}`));
 
@@ -100,7 +103,7 @@ export function tryUpdateTemplate(
   path: string,
   updateHtml: () => void,
   tree: Tree,
-  foundItems: Parser.FoundItem[],
+  foundItems: FoundItem[],
   componentNameFromOption: string
 ): void {
   if (path.endsWith('.html')) {

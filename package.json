@@ -7,7 +7,7 @@
     "ext:watch": "tsc -watch -p ./extension",
     "ext:test": "npm run ext:build && node ./extension/out/test/runTest.js",
     "ext:package": "npm run ext:build && cd extension && vsce package -o ../dist/",
-    "ext:install": "npm run ext:package && cd dist && code --install-extension componizer-0.0.4.vsix",
+    "ext:install": "npm run ext:package && cd dist && code --install-extension componizer-0.0.5.vsix",
     "ext:lint": "tslint --project extension/tsconfig.json",
     "sch:build": "tsc -p ./schematics/tsconfig.json",
     "sch:build:static": "cpx ./schematics/**/{package.json,collection.json,schema.json,files/**} dist/sch",
@@ -15,6 +15,7 @@
     "sch:test": "mocha -r ts-node/register ./schematics/**/*.spec.ts",
     "sch:test:watch": "mocha -r ts-node/register ./schematics/**/*.spec.ts -w --watch-files ./schematics/**/*.spec.ts",
     "sch:package": "npm run sch:build && npm run sch:build:static",
+    "sch:install": "npm run sch:package && cd dist/sch && npm pack",
     "sch:lint": "tslint --project schematics/tsconfig.json",
     "lint": "npm run ext:lint && npm run sch:lint",
     "test": "npm run ext:test && npm run sch:test"
