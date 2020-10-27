@@ -18,12 +18,10 @@
   "homepage": "https://github.com/bilelmsekni/componizer/tree/master/schematics#readme",
   "license": "MIT",
   "schematics": "./collection.json",
-  "peerDependencies": {
+  "dependencies": {
     "@angular-devkit/core": "^8.3.15",
     "@angular-devkit/schematics": "^8.3.15",
-    "@schematics/angular": "^8.3.15"
-  },
-  "dependencies": {
+    "@schematics/angular": "^8.3.15",
     "ts-morph": "^8.1.1"
   }
 }
