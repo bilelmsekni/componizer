@@ -1,27 +1,21 @@
 # Sample
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+It serves as a playground to test [componizer](https://marketplace.visualstudio.com/items?itemName=bilelmsekni.componizer) extension
 
-## Development server
+## Playground setup
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. @componizer/schematics is installed as a dev dependency.
+```
+npm install -D @componizer/schematics
+```
 
-## Code scaffolding
+2. Angular CLI is installed globally (same version as local package)
+```
+npm install -g @angular/cli
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Validated scenarios
 
-## Build
+- Go to app.component.html, select the footer HTML and choose componize => Should create a footer component
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
