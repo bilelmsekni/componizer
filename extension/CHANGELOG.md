@@ -27,8 +27,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [0.0.4]
 
-- [enhancement] add skipImport question
-- [enhancement] add hidden debugMode
-- [enhancement] handle 3 types of bindings : attribute binding, two-way bindings, angular directive. new dependency : ts-morph  to manipulate new component typescript
-- [enhancement] update mochajs and add watch task
-- [enhancement] local install extension task
+- [Feature] add skipImport question
+- [Feature] add hidden debugMode
+- [Feature] handle 3 types of bindings : attribute binding, two-way bindings, angular directive. new dependency : ts-morph  to manipulate new component typescript
+- [Enhancement] update mochajs and add watch task
+- [Enhancement] local install extension/schematic task
+- Many thanks to [Hugo Mercier](https://github.com/hugoparis19) and [Alexandre Crochet](https://github.com/ekaliroots)
