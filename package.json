@@ -21,10 +21,9 @@
     "test": "npm run ext:test && npm run sch:test"
   },
   "dependencies": {
-    "@angular-devkit/core": "^8.3.15",
-    "@angular-devkit/schematics": "^8.3.15",
-    "@schematics/angular": "^8.3.15",
-    "ts-morph": "^8.1.1"
+    "@angular-devkit/core": "^9.1.12",
+    "@angular-devkit/schematics": "^9.1.12",
+    "@schematics/angular": "^9.1.12"
   },
   "devDependencies": {
     "@types/chai": "^4.2.14",
