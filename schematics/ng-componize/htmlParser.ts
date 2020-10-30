@@ -1,29 +1,15 @@
 import { ClassDeclaration, Project, SourceFile } from 'ts-morph';
-
-// rename ??
-export interface FoundItem {
-  name: ConfigurationName;
-  foundItems: string[];
-  writeHtmlContent(): string;
-  writeTSContent(
-    newComponentContent: string,
-    path: string,
-    className: string
-  ): string;
-}
-
-export enum ConfigurationName {
-  InterpolationLookup,
-  BindingLookup,
-  AngularDireciveLookup,
-}
+import { BindingMatch } from './parser/binding-match';
+import { BindingTypeLookup } from './parser/binding-type-lookup';
+import { regexpConfigurations } from './parser/binding-type-lookup-regexp';
+import { ParserFunctionsConfiguration } from './parser/parser-functions-configuration';
 
 export const parserFunctionsConfigurations: ParserFunctionsConfiguration[] = [
   {
     names: [
-      ConfigurationName.InterpolationLookup,
-      ConfigurationName.BindingLookup,
-      ConfigurationName.AngularDireciveLookup,
+      BindingTypeLookup.InterpolationLookup,
+      BindingTypeLookup.AttributeLookup,
+      BindingTypeLookup.AngularDirectiveLookup,
     ],
     htmlUpdater(parameters: string[]): () => string {
       return function (): string {
@@ -68,8 +54,8 @@ export const parserFunctionsConfigurations: ParserFunctionsConfiguration[] = [
   },
 ];
 
-export function launchParsing(htmlContent: string): FoundItem[] {
-  let result: FoundItem[] = [];
+export function launchParsing(htmlContent: string): BindingMatch[] {
+  let result: BindingMatch[] = [];
 
   for (const configuration of regexpConfigurations) {
     const foundItems = htmlContent.match(configuration.lookupRegexp);
@@ -101,38 +87,6 @@ export function extractParameterName(param: string): string {
     .replace('$', '')
     .trim();
 }
-
-interface RegexpConfiguration {
-  name: ConfigurationName;
-  description: string;
-  lookupRegexp: RegExp;
-}
-
-interface ParserFunctionsConfiguration {
-  names: ConfigurationName[];
-  htmlUpdater(parameter: string[]): () => string;
-  computeNewComponentTs(
-    paramater: string[]
-  ): (newComponentContent: string, path: string, className: string) => string;
-}
-
-const regexpConfigurations: RegexpConfiguration[] = [
-  {
-    name: ConfigurationName.InterpolationLookup,
-    description: 'Looking for Interpolated string',
-    lookupRegexp: /(?<={{\s*)([a-zA-Z\-0-9]*)(?=\s*}})/g,
-  },
-  {
-    name: ConfigurationName.BindingLookup,
-    description: 'Looking for data-bindind',
-    lookupRegexp: /(?<=\[[0-9a-zA-Z\-]*\]=\")([\s*\|\?\.\$0-9a-zA-Z\-]*)(?=\")/g,
-  },
-  {
-    name: ConfigurationName.AngularDireciveLookup,
-    description: 'Looking for angular directives',
-    lookupRegexp: /(?<=\*ng[a-zA-Z]*=\")([\s*\|\?\.\$0-9a-zA-Z\-]*)(?=\")/g,
-  },
-];
 
 function addInputProperties(
   parameters: string[],

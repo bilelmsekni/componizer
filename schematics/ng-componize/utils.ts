@@ -11,11 +11,8 @@ import {
   WorkspaceSchema,
 } from '@schematics/angular/utility/workspace-models';
 import * as fs from 'fs';
-import {
-  extractParameterName,
-  FoundItem,
-  launchParsing,
-} from './htmlParser';
+import { extractParameterName, launchParsing } from './HtmlParser';
+import { BindingMatch } from './parser/binding-match';
 
 export function getProjectDetails(
   workSpace: WorkspaceSchema,
@@ -63,7 +60,7 @@ export function createTemplates(
 ): {
   newComponentTemplate: string;
   updatedComponentTemplate: string;
-  foundItem: FoundItem[];
+  foundItem: BindingMatch[];
 } {
   const lines = fileContent.split('\n');
   const begin = lines.slice(0, start);
@@ -103,7 +100,7 @@ export function tryUpdateTemplate(
   path: string,
   updateHtml: () => void,
   tree: Tree,
-  foundItems: FoundItem[],
+  foundItems: BindingMatch[],
   componentNameFromOption: string
 ): void {
   if (path.endsWith('.html')) {

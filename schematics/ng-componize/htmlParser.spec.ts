@@ -1,13 +1,13 @@
 import { expect } from 'chai';
 import {
-  ConfigurationName,
   extractParameterName,
   launchParsing,
   parserFunctionsConfigurations,
-} from './htmlParser';
+} from './HtmlParser';
+import { BindingTypeLookup } from './parser/binding-type-lookup';
 
 describe('htmlParser', () => {
-  it('launchParsing can find AngularDireciveLookup binding', () => {
+  it('launchParsing can find AngularDirectiveLookup binding', () => {
     const selectionToComponize = '<div *ngIf="displayTitle">coucou</div>';
 
     const foundItems = launchParsing(selectionToComponize);
@@ -29,7 +29,7 @@ describe('htmlParser', () => {
     expect(binding.foundItems[0]).to.equal('value1');
   });
 
-  it('launchParsing can find BindingLookup binding', () => {
+  it('launchParsing can find AttributeLookup binding', () => {
     const selectionToComponize =
       '<custom-directive [input1]="user.name | async">content</custom-directive>';
 
@@ -63,12 +63,12 @@ describe('htmlParser', () => {
 
     expect(foundItems.length).to.equal(2);
     const binding1 = foundItems[0];
-    expect(binding1.name).to.equal(ConfigurationName.InterpolationLookup);
+    expect(binding1.name).to.equal(BindingTypeLookup.InterpolationLookup);
     expect(binding1.foundItems.length).to.equal(2);
     expect(binding1.foundItems[0]).to.equal('value1');
     expect(binding1.foundItems[1]).to.equal('value2');
     const binding2 = foundItems[1];
-    expect(binding2.name).to.equal(ConfigurationName.AngularDireciveLookup);
+    expect(binding2.name).to.equal(BindingTypeLookup.AngularDirectiveLookup);
     expect(binding2.foundItems.length).to.equal(1);
     expect(binding2.foundItems[0]).to.equal('displayTitle');
   });
