@@ -3,7 +3,7 @@ import {
   extractParameterName,
   launchParsing,
   parserFunctionsConfigurations,
-} from './HtmlParser';
+} from './htmlParser';
 import { BindingTypeLookup } from './parser/binding-type-lookup';
 
 describe('htmlParser', () => {

@@ -17,7 +17,7 @@ describe('utils', () => {
       '<div *ngIf="displayTitle">coucou</div>'
     );
     expect(templatesResult.updatedComponentTemplate).to.contain(
-      '<app-componized  [displayTitle]="displayTitle"></app-componized>'
+      '<app-componized [displayTitle]="displayTitle"></app-componized>'
     );
     expect(templatesResult.foundItem.length).to.equal(1);
   });
@@ -40,7 +40,7 @@ describe('utils', () => {
       '<app-custom [value]="value" [input2]="name"></app-custom>'
     );
     expect(templatesResult.updatedComponentTemplate).to.contain(
-      '<app-componized  [title]="title" [value]="value" [name]="user?.name | async" [displayTitle]="displayTitle"></app-componized>'
+      '<app-componized [title]="title" [value]="value" [name]="user?.name | async" [displayTitle]="displayTitle"></app-componized>'
     );
     expect(templatesResult.foundItem.length).to.equal(3);
   });

@@ -74,4 +74,33 @@ describe('ng-componize', () => {
       '/projects/bar/src/app/toto/toto.component.spec.ts'
     );
   });
+
+  it('should replace selected content to new component tag', async () => {
+    const tree = await runner
+      .runSchematicAsync(
+        'ng-componize',
+        {
+          name: 'toto',
+          activeFile: '/projects/bar/src/app/app.component.ts',
+          start: 9,
+          end: 15,
+          project: 'bar',
+          inlineStyle: false,
+          inlineTemplate: false,
+          changeDetection: ChangeDetection.Default,
+          style: Style.Css,
+          type: 'Component',
+          skipTests: false,
+          module: undefined,
+          export: false,
+          customSkipImport: 'false',
+          debugMode: 'false',
+        },
+        appTree
+      )
+      .toPromise();
+
+    const appComponentHTMLContent = tree.readContent('/projects/bar/src/app/app.component.ts');
+    expect(appComponentHTMLContent).to.match(/<app-toto><\/app-toto>/g);
+  });
 });

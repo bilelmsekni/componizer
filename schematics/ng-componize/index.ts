@@ -50,8 +50,8 @@ function componize(
 
     if (activeFileBuffer) {
       const {
-        newComponentTemplate: newComponentTemplate,
-        updatedComponentTemplate: updatedComponentTemplate,
+        newComponentTemplate,
+        updatedComponentTemplate,
         foundItem,
       } = createTemplates(
         activeFileBuffer.content.toString(),

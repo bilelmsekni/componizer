@@ -11,7 +11,7 @@ import {
   WorkspaceSchema,
 } from '@schematics/angular/utility/workspace-models';
 import * as fs from 'fs';
-import { extractParameterName, launchParsing } from './HtmlParser';
+import { extractParameterName, launchParsing } from './htmlParser';
 import { BindingMatch } from './parser/binding-match';
 
 export function getProjectDetails(
@@ -89,7 +89,7 @@ export function createTemplates(
     newComponentTemplate: selection,
     updatedComponentTemplate: [
       ...begin,
-      `<${selector} ${parametersStringPart}></${selector}>`,
+      `<${selector}${parametersStringPart}></${selector}>`,
       ...finish,
     ].join('\n'),
     foundItem: result,
