@@ -23,7 +23,8 @@
   "dependencies": {
     "@angular-devkit/core": "^9.1.12",
     "@angular-devkit/schematics": "^9.1.12",
-    "@schematics/angular": "^9.1.12"
+    "@schematics/angular": "^9.1.12",
+    "ts-morph": "^8.1.1"
   },
   "devDependencies": {
     "@types/chai": "^4.2.14",
