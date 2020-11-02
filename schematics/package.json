@@ -1,6 +1,6 @@
 {
   "name": "@componizer/schematics",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Refactoring to components",
   "keywords": [
     "schematics",
@@ -18,9 +18,10 @@
   "homepage": "https://github.com/bilelmsekni/componizer/tree/master/schematics#readme",
   "license": "MIT",
   "schematics": "./collection.json",
-  "peerDependencies": {
+  "dependencies": {
     "@angular-devkit/core": "^8.3.15",
     "@angular-devkit/schematics": "^8.3.15",
-    "@schematics/angular": "^8.3.15"
+    "@schematics/angular": "^8.3.15",
+    "ts-morph": "^8.1.1"
   }
 }

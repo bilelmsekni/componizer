@@ -7,13 +7,9 @@
     "declaration": true,
     "moduleResolution": "node",
     "skipDefaultLibCheck": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "lib": ["es2020.string"]
   },
-  "include": [
-    "ng-componize/**/*"
-  ],
-  "exclude": [
-    "./**/*.spec.ts",
-    "./*/files/**/*"
-  ]
+  "include": ["ng-componize/**/*"],
+  "exclude": ["./**/*.spec.ts", "./*/files/**/*"]
 }

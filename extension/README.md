@@ -31,3 +31,5 @@ npm install -g @angular/cli
 
 * Karim Mikhail
 * [Maykon Oliveira](https://github.com/maykon-oliveira)
+* [Hugo Mercier](https://github.com/hugoparis19)
+* [Alexandre Crochet](https://github.com/ekaliroots)
