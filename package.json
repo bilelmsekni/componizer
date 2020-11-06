@@ -18,7 +18,8 @@
     "sch:install": "npm run sch:package && cd dist/sch && npm pack",
     "sch:lint": "tslint --project schematics/tsconfig.json",
     "lint": "npm run ext:lint && npm run sch:lint",
-    "test": "npm run ext:test && npm run sch:test"
+    "test": "npm run ext:test && npm run sch:test",
+    "link:schematics:sample": "cd dist/sch && npm link && cd ./../../sample && npm link @componizer/schematics"
   },
   "dependencies": {
     "@angular-devkit/core": "^9.1.12",

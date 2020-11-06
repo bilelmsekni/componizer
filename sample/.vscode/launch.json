@@ -1,0 +1,24 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "debug schematics",
+      "program": "${workspaceFolder}/node_modules/@angular-devkit/schematics-cli/bin/schematics.js",
+      "args": [
+        "./node_modules/@componizer/schematics:ng-componize",
+        "--dry-run=false",
+        "--path=/",
+        "--name=/src/app/test",
+        "--customSkipImport=false",
+        "--debugMode=true",
+        "--prefix=app",
+        "--activeFile=./src/app/app.component.html",
+        "--start=0",
+        "--end=3"
+      ],
+      "outFiles": []
+    }
+  ]
+}
