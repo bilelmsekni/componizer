@@ -25,7 +25,7 @@ export function createScript(
   debugMode: boolean
 ): string {
   const { start, end } = selection;
-  const script = `ng g @componizer/schematics:ng-componize --name ${newComponent} --activeFile ${activeFile} --start ${start.line} --end ${end.line} --customSkipImport ${skipImport} --debugMode ${debugMode}`;
+  const script = `ng g @componizer/schematics:ng-componize --name ${newComponent} --activeFile "${activeFile}" --start ${start.line} --end ${end.line} --customSkipImport ${skipImport} --debugMode ${debugMode}`;
   window.showInformationMessage(script);
   return script;
 }
