@@ -33,3 +33,9 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 - [Enhancement] update mochajs and add watch task
 - [Enhancement] local install extension/schematic task
 - Many thanks to [Hugo Mercier](https://github.com/hugoparis19) and [Alexandre Crochet](https://github.com/ekaliroots)
+
+## [0.0.5]
+
+- [Feature] Update to Angular 9
+- [Enhancement] Add debug helping commands and configs to sample project
+- [Fix] Handle file name containing a space (Thanks for [UserNobody14](https://github.com/UserNobody14))
