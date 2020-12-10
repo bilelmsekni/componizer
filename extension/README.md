@@ -28,3 +28,4 @@ npm install -D @componizer/schematics
 * [Maykon Oliveira](https://github.com/maykon-oliveira)
 * [Hugo Mercier](https://github.com/hugoparis19)
 * [Alexandre Crochet](https://github.com/ekaliroots)
+* [Chihab Otmani](https://github.com/chihab)
