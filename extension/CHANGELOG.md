@@ -38,4 +38,8 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - [Feature] Update to Angular 9
 - [Enhancement] Add debug helping commands and configs to sample project
-- [Fix] Handle file name containing a space (Thanks for [UserNobody14](https://github.com/UserNobody14))
+- [Fix] Handle file name containing a space (Thanks to [UserNobody14](https://github.com/UserNobody14))
+
+## [0.0.6]
+
+- [Enhancement] Remove dependency on global Angular CLI (Thanks to [Chihab Otmani](https://github.com/chihab))
