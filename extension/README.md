@@ -9,14 +9,9 @@ See the [CHANGELOG](https://github.com/bilelmsekni/componizer/blob/master/extens
 
 ## Requirements
 
-1. Add @componizer/schematics as a dev dependency to your Angular project.
+Add @componizer/schematics as a dev dependency to your Angular project.
 ```
 npm install -D @componizer/schematics
-```
-
-2. Install Angular CLI globally
-```
-npm install -g @angular/cli
 ```
 
 ## [Having an issue or a request ? report it here](https://github.com/bilelmsekni/componizer/issues)
