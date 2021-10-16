@@ -15,22 +15,32 @@ suite('Extension Test Suite', () => {
     '../../../src/test/mock/sample.component.html'
   );
   const activeFileName = 'toto';
+  const skipImport = false;
   let settings: Uri = Uri.file(activeFile);
 
-  test('call showInputBox, createScript and exec when ComponizerCommand is invoked', async () => {
+  test('call showInputBox, showQuickPick, createScript and exec when ComponizerCommand is invoked', async () => {
     await workspace.openTextDocument(settings);
     await window.showTextDocument(settings);
-    const sibSpy = stub(window, 'showInputBox').returns(
+
+    const showInputBoxSpy = stub(window, 'showInputBox').returns(
       Promise.resolve(activeFileName)
     );
+
+    const showQuickPickSpy = stub(window, "showQuickPick").returns(
+      Promise.resolve('No' as any)
+    );
+
     const csSpy = stub(utils, 'createScript').callsFake(() => 'fake script');
     const execSpy = spy(child_process, 'exec');
+
     await componizerCommand();
-    expect(sibSpy.callCount).to.equal(2);
+
+    expect(showInputBoxSpy.callCount).to.equal(1);
+    expect(showQuickPickSpy.callCount).to.equal(1);
     expect(
       csSpy.withArgs(
         activeFileName,
-        activeFileName,
+        skipImport,
         activeFile,
         match.object,
         false

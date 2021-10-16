@@ -1,25 +1,31 @@
 import { Selection, window } from 'vscode';
-import { defaultComponentName, defaultSkipImport } from './constants';
+import { DEFAULT_COMPONENT_NAME, DEFAULT_SKIP_IMPORT } from './constants';
 
 export async function showInputBox(): Promise<string> {
   const result = await window.showInputBox({
     value: '',
     placeHolder: 'Choose your component name ...',
   });
-  return result || defaultComponentName;
+  return result || DEFAULT_COMPONENT_NAME;
 }
 
-export async function showInputBoxForSkipImport(): Promise<string> {
-  const result = await window.showInputBox({
-    value: '',
-    placeHolder: 'Allows for skipping the module import.',
-  });
-  return result || defaultSkipImport;
+export async function showInputBoxForSkipImport(): Promise<boolean> {
+  type Choice = "Yes" | "No";
+  const result = (await window.showQuickPick(["No", "Yes"], {
+    placeHolder: "Allows for skipping the module import.",
+    canPickMany: false,
+    ignoreFocusOut: true,
+  })) as Choice;
+  const choiceToBoolean = {
+    Yes: true,
+    No: false,
+  };
+  return choiceToBoolean[result] || DEFAULT_SKIP_IMPORT;
 }
 
 export function createScript(
   newComponent: string,
-  skipImport: string,
+  skipImport: boolean,
   activeFile: string,
   selection: Selection,
   debugMode: boolean
