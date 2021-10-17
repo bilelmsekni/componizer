@@ -1,13 +1,13 @@
 {
   "name": "platform",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "scripts": {
     "ext:vscode:prepublish": "npm run ext:build",
     "ext:build": "tsc -p ./extension",
     "ext:watch": "tsc -watch -p ./extension",
     "ext:test": "npm run ext:build && node ./extension/out/test/runTest.js",
     "ext:package": "npm run ext:build && cd extension && vsce package -o ../dist/",
-    "ext:install": "npm run ext:package && cd dist && code --install-extension componizer-0.0.6.vsix",
+    "ext:install": "npm run ext:package && cd dist && code --install-extension componizer-0.0.7.vsix",
     "ext:lint": "tslint --project extension/tsconfig.json",
     "sch:build": "tsc -p ./schematics/tsconfig.json",
     "sch:build:static": "cpx ./schematics/**/{package.json,collection.json,schema.json,files/**} dist/sch",
