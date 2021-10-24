@@ -29,7 +29,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 - [Feature] add skipImport question
 - [Feature] add hidden debugMode
-- [Feature] handle 3 types of bindings : attribute binding, two-way bindings, angular directive. new dependency : ts-morph  to manipulate new component typescript
+- [Feature] handle 3 types of bindings : attribute binding, two-way bindings, angular directive. new dependency : ts-morph to manipulate new component typescript
 - [Enhancement] update mochajs and add watch task
 - [Enhancement] local install extension/schematic task
 - Many thanks to [Hugo Mercier](https://github.com/hugoparis19) and [Alexandre Crochet](https://github.com/ekaliroots)
@@ -43,3 +43,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## [0.0.6]
 
 - [Enhancement] Remove dependency on global Angular CLI (Thanks to [Chihab Otmani](https://github.com/chihab))
+
+## [0.0.7]
+
+- [Enhancement] Now users can choose "Allows for skipping the module import" option through a quick pick UI instead of typing 'true' or 'false'.

@@ -1,6 +1,6 @@
 {
   "name": "@componizer/schematics",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "Refactoring to components",
   "keywords": [
     "schematics",
